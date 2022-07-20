@@ -3,7 +3,7 @@ repeat
 until game:IsLoaded()
 
 local Venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-local Library = Venyx.new("Smoke")
+local Library = Venyx.new("Krypt")
 Library:setTheme("Glow", Color3.fromRGB(255, 0, 0))
 Library:setTheme("TextColor", Color3.fromRGB(255, 0, 0))
 
@@ -4214,7 +4214,7 @@ Target:addButton("Cash", function()
 	notifSound.SoundId = "rbxassetid://170765130"
 	notifSound.PlayOnRemove = true
 	notifSound:Destroy()
-	game.StarterGui:SetCore("SendNotification", {Title = "Smoke", Text = game:GetService("Players")[Skid].Name.." has $"..game:GetService("Players")[Skid].DataFolder.Currency.Value, Icon = "rbxassetid://505845268", Duration = 15, Button1 = "Okay"})
+	game.StarterGui:SetCore("SendNotification", {Title = "Krypt", Text = game:GetService("Players")[Skid].Name.." has $"..game:GetService("Players")[Skid].DataFolder.Currency.Value, Icon = "rbxassetid://505845268", Duration = 15, Button1 = "Okay"})
 end)
 Target:addButton("Info", function()
 	print("------------------")
@@ -4351,44 +4351,3 @@ game:GetService("Players").LocalPlayer:GetMouse().KeyDown:Connect(function(Key)
 end)
 
 Library:SelectPage(Library.pages[1], true)
-
-Library:Notify("Smoke", "We have started! Thank you for using our service https://discord.gg/TypGKfDPz8")
-
-local bind = Instance.new("BindableFunction")
---https://discord.gg/TypGKfDPz8
-function bind.OnInvoke(response)
-	if response == "Accept" then
-		local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-		local k = game.Workspace.Ignored.Shop["[Surgeon Mask] - $25"]
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
-		if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
-			wait(.2)
-			fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
-			toolf = game.Players.LocalPlayer.Backpack:WaitForChild("Mask")
-			toolf.Parent = game.Players.LocalPlayer.Character
-			wait()
-			game.Players.LocalPlayer.Character:WaitForChild("Mask")
-			game:GetService("VirtualUser"):ClickButton1(Vector2.new())
-			if game.Players.LocalPlayer.Character:FindFirstChild("Shirt") then
-				game.Players.LocalPlayer.Character.Shirt:Destroy()
-			elseif game.Players.LocalPlayer.Character:FindFirstChild("Pants") then
-				game.Players.LocalPlayer.Character.Pants:Destroy()
-			end
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
-		end
-	else
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Smoke, made by bloodsport#0001",
-			Text = "If you get banned, its not on us!",
-			Duration = 6.9
-		})
-	end
-end
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Smoke",
-	Text = "Join the discord, we sell cash! buy a mask so people can't see your name",
-	Duration = 3.4028235e+38,
-	Callback = bind,
-	Button1 = "Buy",
-	Button2 = "Don't buy"
-})
